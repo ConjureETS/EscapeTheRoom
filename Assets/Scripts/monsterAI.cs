@@ -9,6 +9,9 @@ public class monsterAI : MonoBehaviour
 	public float rotationDamping; // Lower rotation damping = slower rotation
 	public float moveSpeed;
 
+
+	public float distance;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -31,15 +34,16 @@ public class monsterAI : MonoBehaviour
 	// Check is the current distance is deadly for the target 
 	bool IsAtDeadlyDistance ()
 	{
-		return (deadlyDistance <= Vector3.Distance (target.position, transform.position));
+		return (Vector3.Distance (target.position, transform.position) <= deadlyDistance);
 	}
 
 	// Look toward target
 	void LookAtTarget ()
 	{
-		//Quaternion rotation = Quaternion.LookRotation (target.rotation - transform.rotation);
-		//transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
+		Vector3 relativePos = target.position - transform.position;
+		Quaternion rotation = Quaternion.LookRotation (relativePos);
 
+		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
 	}
 	// Follow player from a certain initial distance at a certain speed.
 	void MoveTowardTarget ()
