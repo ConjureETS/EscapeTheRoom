@@ -45,6 +45,7 @@ public class monsterAI : MonoBehaviour
 
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
 	}
+
 	// Follow player from a certain initial distance at a certain speed.
 	void MoveTowardTarget ()
 	{
