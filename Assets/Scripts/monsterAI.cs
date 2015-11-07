@@ -6,17 +6,17 @@ public class monsterAI : MonoBehaviour
 	public GameObject player;
 	private Transform target;
 	public float deadlyDistance;
-	public float rotationDamping; // Lower rotation damping = slower rotation
-	public float moveSpeed;
 
-
-	public float distance;
+	private NavMeshAgent agent;
 
 	// Use this for initialization
 	void Start ()
 	{
 		target = player.transform;
-	
+
+		agent = gameObject.GetComponent<NavMeshAgent> ();
+		
+		agent.SetDestination (target.position);
 	}
 	
 	// Update is called once per frame
@@ -24,10 +24,9 @@ public class monsterAI : MonoBehaviour
 	{
 		if (IsAtDeadlyDistance ()) {
 			// Kill the player
-		} else {
-			LookAtTarget ();
-			MoveTowardTarget ();
 		}
+
+		agent.SetDestination (target.position);
 	
 	}
 
@@ -36,20 +35,4 @@ public class monsterAI : MonoBehaviour
 	{
 		return (Vector3.Distance (target.position, transform.position) <= deadlyDistance);
 	}
-
-	// Look toward target
-	void LookAtTarget ()
-	{
-		Vector3 relativePos = target.position - transform.position;
-		Quaternion rotation = Quaternion.LookRotation (relativePos);
-
-		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
-	}
-
-	// Follow player from a certain initial distance at a certain speed.
-	void MoveTowardTarget ()
-	{
-		transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
-	}
-
 }
