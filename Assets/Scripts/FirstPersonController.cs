@@ -160,10 +160,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			PlayRespireSound();
 			//Actions joueur
-			if(Input.GetButton("Briquet"))
+			if(m_Briquets[indexBriquet]!=null)
 			{
 				//allumerBriquet
-				if(m_Briquets[indexBriquet]!=null)
+				if(Input.GetButton("Briquet"))
 				{
 					//Si un briquet n'est pas déja allumé
 					if(!m_Briquets[indexBriquet].activer)
@@ -181,22 +181,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 							DestroyObject(GameObject.FindGameObjectWithTag("Allumettes"));
 						}
 						m_Briquets[indexBriquet].activer=true;
-						m_Briquets[indexBriquet].enabled = true;
+						m_Briquets[indexBriquet].enabled=true;
 					}
 					//Si le briquet est déja allumé
 					else
 					{
 						m_Briquets[indexBriquet].activer=false;
-						m_Briquets[indexBriquet].enabled = false;
+						m_Briquets[indexBriquet].enabled=false;
 					}
+					
 				}
-			}
-			//Si le briquet est vide, le jeté
-			if (m_Briquets[indexBriquet].m_Essence <= 0)
-			{
-				m_Briquets[indexBriquet].activer=false;
-				DestroyObject(m_Briquets[indexBriquet].gameObject);
-				indexBriquet++;
+				//Si le briquet est vide, le jeté
+				if (m_Briquets[indexBriquet].m_Essence <= 0)
+				{
+					m_Briquets[indexBriquet].activer=false;
+					DestroyObject(m_Briquets[indexBriquet].gameObject);
+					indexBriquet++;
+				}
 			}
 
 			if(Input.GetButton("Alumettes"))

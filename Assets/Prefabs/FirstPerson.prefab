@@ -312,6 +312,7 @@ MonoBehaviour:
   - {fileID: 11418934, guid: 303650e9a23c68a42876df290e9d7537, type: 2}
   - {fileID: 11418934, guid: 303650e9a23c68a42876df290e9d7537, type: 2}
   - {fileID: 11418934, guid: 303650e9a23c68a42876df290e9d7537, type: 2}
+  - {fileID: 0}
   m_Allumettes: {fileID: 11455286, guid: bdd994d2c872c9e4d8601100f973be0d, type: 2}
   m_WalkSpeed: 3
   m_RunSpeed: 10
@@ -418,8 +419,20 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: m_Briquets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_TagString
       value: AudioSourceBreath
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Briquets.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_NbrAllumettes
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
