@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 4fed9d0bf3595254ba35890c3fd49728
+timeCreated: 1446994524
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Component#1_001
+    100002: Component#1_002
+    100004: Component#2_001
+    100006: Component#2_002
+    100008: Component#4_001
+    100010: Component#4_002
+    100012: Component#4_003
+    100014: Component#4_004
+    100016: Component#5_001
+    100018: Component#5_002
+    100020: Component#5_003
+    100022: Component#5_004
+    100024: Component#6_001
+    100026: Component#6_002
+    100028: Group#14_001
+    100030: Group#14_002
+    100032: Group#17_001
+    100034: Group#17_002
+    100036: Group_001
+    100038: Group_002
+    100040: Group_003
+    100042: Group_004
+    100044: Group_005
+    100046: Group_006
+    100048: Group_007
+    100050: Group_008
+    100052: Group_009
+    100054: Group_010
+    100056: //RootNode
+    400000: Component#1_001
+    400002: Component#1_002
+    400004: Component#2_001
+    400006: Component#2_002
+    400008: Component#4_001
+    400010: Component#4_002
+    400012: Component#4_003
+    400014: Component#4_004
+    400016: Component#5_001
+    400018: Component#5_002
+    400020: Component#5_003
+    400022: Component#5_004
+    400024: Component#6_001
+    400026: Component#6_002
+    400028: Group#14_001
+    400030: Group#14_002
+    400032: Group#17_001
+    400034: Group#17_002
+    400036: Group_001
+    400038: Group_002
+    400040: Group_003
+    400042: Group_004
+    400044: Group_005
+    400046: Group_006
+    400048: Group_007
+    400050: Group_008
+    400052: Group_009
+    400054: Group_010
+    400056: //RootNode
+    2300000: Component#1_001
+    2300002: Component#1_002
+    2300004: Component#2_001
+    2300006: Component#2_002
+    2300008: Component#4_001
+    2300010: Component#4_002
+    2300012: Component#4_003
+    2300014: Component#4_004
+    2300016: Component#5_001
+    2300018: Component#5_002
+    2300020: Component#5_003
+    2300022: Component#5_004
+    2300024: Component#6_001
+    2300026: Component#6_002
+    2300028: Group#14_001
+    2300030: Group#14_002
+    2300032: Group#17_001
+    2300034: Group#17_002
+    2300036: Group_001
+    2300038: Group_002
+    2300040: Group_003
+    2300042: Group_004
+    2300044: Group_005
+    2300046: Group_006
+    2300048: Group_007
+    2300050: Group_008
+    2300052: Group_009
+    2300054: Group_010
+    3300000: Component#1_001
+    3300002: Component#1_002
+    3300004: Component#2_001
+    3300006: Component#2_002
+    3300008: Component#4_001
+    3300010: Component#4_002
+    3300012: Component#4_003
+    3300014: Component#4_004
+    3300016: Component#5_001
+    3300018: Component#5_002
+    3300020: Component#5_003
+    3300022: Component#5_004
+    3300024: Component#6_001
+    3300026: Component#6_002
+    3300028: Group#14_001
+    3300030: Group#14_002
+    3300032: Group#17_001
+    3300034: Group#17_002
+    3300036: Group_001
+    3300038: Group_002
+    3300040: Group_003
+    3300042: Group_004
+    3300044: Group_005
+    3300046: Group_006
+    3300048: Group_007
+    3300050: Group_008
+    3300052: Group_009
+    3300054: Group_010
+    4300000: Component#2_002
+    4300002: Component#2_001
+    4300004: Component#1_002
+    4300006: Component#1_001
+    4300008: Component#6_002
+    4300010: Component#6_001
+    4300012: Component#5_004
+    4300014: Component#5_003
+    4300016: Group#14_002
+    4300018: Group#14_001
+    4300020: Group#17_002
+    4300022: Group#17_001
+    4300024: Component#5_002
+    4300026: Component#5_001
+    4300028: Component#4_004
+    4300030: Component#4_003
+    4300032: Component#4_002
+    4300034: Component#4_001
+    4300036: Group_010
+    4300038: Group_009
+    4300040: Group_008
+    4300042: Group_007
+    4300044: Group_006
+    4300046: Group_005
+    4300048: Group_004
+    4300050: Group_003
+    4300052: Group_002
+    4300054: Group_001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
