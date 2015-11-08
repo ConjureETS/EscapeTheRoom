@@ -31,6 +31,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		[SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
 		[SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
 		[SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+		[SerializeField] private AudioClip m_RespireSound;           // the sound played when character touches back on ground.
+		[SerializeField] private AudioClip m_NoStaminaSound;           // the sound played when character touches back on ground.
 		
 		private Camera m_Camera;
 		private bool m_Jump;
@@ -47,6 +49,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private float m_NextStep;
 		private bool m_Jumping;
 		private AudioSource m_AudioSource;
+		private AudioSource m_AudioSourceChild;
 		private MilesStonesPARA currentMilestone;
 		
 		// Use this for initialization
@@ -62,6 +65,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_NextStep = m_StepCycle/2f;
 			m_Jumping = false;
 			m_AudioSource = GetComponent<AudioSource>();
+			m_AudioSourceChild = GameObject.FindGameObjectWithTag("AudioSourceBreath").GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
 		}
 		
@@ -98,8 +102,46 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_AudioSource.Play();
 			m_NextStep = m_StepCycle + .5f;
 		}
-		
-		
+
+		private void PlayRespireSound()
+		{
+			bool changeSound;
+			if(Input.GetButton("StopRespire") && canSprint)
+			{
+				//Stopper la respiration et auguementer les sons
+				m_AudioSourceChild.volume -= 0.05f;
+				if(m_AudioSourceChild.volume <0)
+					m_AudioSourceChild.volume=0;
+				
+			}
+			else
+			{
+				//Repiration sounds
+				m_AudioSourceChild.volume += 0.3f;
+				if(m_AudioSourceChild.volume >1)
+					m_AudioSourceChild.volume=1;
+			}
+			if(m_Stamina < 100)
+			{
+				if(m_AudioSourceChild.clip == m_NoStaminaSound)
+					changeSound=false;
+				else
+					changeSound=true;
+
+				m_AudioSourceChild.clip = m_NoStaminaSound;
+			}
+			else
+			{
+				if(m_AudioSourceChild.clip == m_RespireSound)
+					changeSound=false;
+				else
+					changeSound=true;
+				m_AudioSourceChild.clip = m_RespireSound;
+			}
+			if(changeSound || !m_AudioSourceChild.isPlaying)
+				m_AudioSourceChild.Play();
+			m_NextStep = m_StepCycle + .5f;
+		}
 		private void FixedUpdate()
 		{
 			float speed;
@@ -115,7 +157,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			
 			m_MoveDir.x = desiredMove.x*speed;
 			m_MoveDir.z = desiredMove.z*speed;
-			
+
+			PlayRespireSound();
 			//Actions joueur
 			if(Input.GetButton("Briquet"))
 			{
@@ -182,14 +225,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					m_NbrAllumettes--;
 					DestroyObject(GameObject.FindGameObjectWithTag("Allumettes"));
 				}
-
-			if(Input.GetButton("StopRespire"))
-				//Stopper la respiration et auguementer les sons
-				print("yo2");
-			else
-				//Repiration sounds
-				print("yo3");
-			
 			if (m_CharacterController.isGrounded)
 			{
 				m_MoveDir.y = -m_StickToGroundForce;
@@ -293,7 +328,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			// keep track of whether or not the character is walking or running
 			m_IsWalking = !CrossPlatformInputManager.GetButton("Course");
 			//Si le joueur marche. Il reprend de l'énergie
-			if(m_IsWalking)
+			if(m_IsWalking && !Input.GetButton("StopRespire"))
 			{
 				m_Stamina += 5;
 				if(m_Stamina >= 500)
@@ -302,7 +337,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					m_Stamina = 1000;
 			}
 			//Sinon il court, mais il perd de l'énergie
-			else
+			else if(!m_IsWalking || Input.GetButton("StopRespire"))
 			{
 				m_Stamina -= 10;
 				if(m_Stamina < 0)
