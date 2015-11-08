@@ -18,6 +18,7 @@ public class HoleScript : MonoBehaviour {
         if(other.tag == "Player")
         {
             print("floor ded");
+            other.GetComponent<Rigidbody>().AddForce(0, 50, 0);
             floor.GetComponent<Collider>().enabled = false;
         }
     }

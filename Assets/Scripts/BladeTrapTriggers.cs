@@ -4,11 +4,12 @@ using System.Collections;
 public class BladeTrapTriggers : MonoBehaviour {
 
     public GameObject bladeTrap;
-    
-	// Use this for initialization
-	void Start () {
-	    
-	}
+    //pris sur soundBible
+    private AudioSource ac;
+    // Use this for initialization
+    void Start () {
+        ac = this.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,6 +20,7 @@ public class BladeTrapTriggers : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
+            ac.Play();
             bladeTrap.GetComponent<BladeTrapScript>().SetIsStarted(true);
             
         }
