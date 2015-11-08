@@ -9,10 +9,12 @@ public class BladeTrapScript : MonoBehaviour {
     private Vector3 trapPosition;
     private bool goingUp;
     private bool isStarted;
+    
 	// Use this for initialization
 	void Start () {
         isStarted = false;
         rb = this.GetComponent<Rigidbody>();
+        
         trapPosition = this.transform.position;
         goingUp = true;
 	}
