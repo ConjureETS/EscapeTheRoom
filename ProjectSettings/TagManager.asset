@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trap
+  - Briquet
+  - MilesStones
+  - Allumettes
+  - AudioSourceBreath
   layers:
   - Default
   - TransparentFX

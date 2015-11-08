@@ -13,8 +13,6 @@ public class FlickeringLight : MonoBehaviour
         float range = MaxIntensity - MinIntensity;
         float AverageIntensity = MinIntensity + range / 2;
 
-        Debug.Log(Mathf.Sin(Time.timeSinceLevelLoad));
-
         PointLight.intensity = Random.Range(MinIntensity, MaxIntensity);
     }
 }
