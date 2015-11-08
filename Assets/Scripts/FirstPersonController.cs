@@ -118,26 +118,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				//Repiration sounds
 				m_AudioSourceChild.volume += 0.3f;
-				if(m_AudioSourceChild.volume >1)
-					m_AudioSourceChild.volume=1;
+				if(m_AudioSourceChild.volume >0.5f)
+					m_AudioSourceChild.volume=0.5f;
 			}
 			if(m_Stamina < 100)
-			{
-				if(m_AudioSourceChild.clip == m_NoStaminaSound)
-					changeSound=false;
-				else
-					changeSound=true;
-
-				m_AudioSourceChild.clip = m_NoStaminaSound;
-			}
-			else
 			{
 				if(m_AudioSourceChild.clip == m_RespireSound)
 					changeSound=false;
 				else
 					changeSound=true;
+
 				m_AudioSourceChild.clip = m_RespireSound;
 			}
+			else
+			{
+				if(m_AudioSourceChild.clip == m_NoStaminaSound)
+					changeSound=false;
+				else
+					changeSound=true;
+				m_AudioSourceChild.clip = m_NoStaminaSound;
+			}
+
 			if(changeSound || !m_AudioSourceChild.isPlaying)
 				m_AudioSourceChild.Play();
 			m_NextStep = m_StepCycle + .5f;

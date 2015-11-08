@@ -385,7 +385,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
-  m_RespireSound: {fileID: 8300000, guid: 6336350fc2bc6e74185163c95a6485dc, type: 3}
+  m_RespireSound: {fileID: 8300000, guid: 9645d3b6fddbdd44387c0d6996512b2a, type: 3}
   m_NoStaminaSound: {fileID: 8300000, guid: 96ec8c58b35c5354e9d23061d25a23d6, type: 3}
 --- !u!124 &12479126
 Behaviour:
@@ -434,6 +434,10 @@ Prefab:
       propertyPath: m_NbrAllumettes
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RespireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9645d3b6fddbdd44387c0d6996512b2a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117402}
