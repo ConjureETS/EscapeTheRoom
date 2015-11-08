@@ -9,6 +9,8 @@ TagManager:
   - MilesStones
   - Allumettes
   - AudioSourceBreath
+  - Lighter
+  - Allumette
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private Camera m_Camera;
 		private bool m_Jump;
 		private int indexBriquet;
+		private GameObject lighter;
+		private GameObject allumette;
 		private bool canSprint;
 		private float m_YRotation;
 		private Vector2 m_Input;
@@ -67,6 +69,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_AudioSource = GetComponent<AudioSource>();
 			m_AudioSourceChild = GameObject.FindGameObjectWithTag("AudioSourceBreath").GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+			lighter = GameObject.FindGameObjectWithTag (("Lighter"));
+			lighter.SetActive (false);
+			allumette = GameObject.FindGameObjectWithTag (("Allumette"));
+			allumette.SetActive (false);
 		}
 		
 		
@@ -179,16 +185,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
 						if(GameObject.FindGameObjectWithTag("Allumettes")!=null)
 						{
 							m_NbrAllumettes--;
+							allumette.SetActive (false);
 							DestroyObject(GameObject.FindGameObjectWithTag("Allumettes"));
 						}
 						m_Briquets[indexBriquet].activer=true;
 						m_Briquets[indexBriquet].enabled=true;
+						lighter.SetActive(true);
 					}
 					//Si le briquet est déja allumé
 					else
 					{
 						m_Briquets[indexBriquet].activer=false;
 						m_Briquets[indexBriquet].enabled=false;
+						lighter.SetActive(false);
 					}
 					
 				}
@@ -196,6 +205,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				if (m_Briquets[indexBriquet].m_Essence <= 0)
 				{
 					m_Briquets[indexBriquet].activer=false;
+					lighter.SetActive(false);
 					DestroyObject(m_Briquets[indexBriquet].gameObject);
 					indexBriquet++;
 				}
@@ -211,11 +221,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					{
 						m_Briquets[indexBriquet].activer=false;
 						m_Briquets[indexBriquet].enabled = false;
+						lighter.SetActive(false);
 					}
 					//Si il ny a pas d'allumettes déja allumé
 					if(GameObject.FindGameObjectWithTag("Allumettes")==null)
 					{
 						Instantiate(m_Allumettes);
+						allumette.SetActive (true);
 						GameObject.FindGameObjectWithTag("Allumettes").GetComponent<Allumettes>().activer=true;
 					}
 				}
@@ -225,6 +237,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				if(GameObject.FindGameObjectWithTag("Allumettes").GetComponent<Allumettes>().m_Duree<=0)
 				{
 					m_NbrAllumettes--;
+					allumette.SetActive(false);
 					DestroyObject(GameObject.FindGameObjectWithTag("Allumettes"));
 				}
 			if (m_CharacterController.isGrounded)
